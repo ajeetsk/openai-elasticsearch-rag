@@ -7,8 +7,7 @@ If a close match is found, the function constructs a response message based on t
 If no close match is found, the function constructs a response message based on the user query alone.
 """
 
-from app.services.core import es_service
-from app.services.core import open_ai_service
+from app.services.core import es_service, openai_service
 
 BEST_SCORE_THRESHOLD = 1.71  # Threshold for considering a match as close; Adjust as needed
 
@@ -22,7 +21,7 @@ def generate_answer(query, index=None, pre_msgs=None):
     matched_texts = ""
     best_score = 0
     if index:
-        query_embedding = open_ai_service.generate_embedding(query)
+        query_embedding = openai_service.generate_embedding(query)
         res = es_service.search_embedding(index, query_embedding, 10)
         if res:
             i = 0
@@ -71,4 +70,4 @@ def generate_answer(query, index=None, pre_msgs=None):
             "content": query
         })
 
-    return open_ai_service.generate_chat_response(messages)
+    return openai_service.generate_chat_response(messages)

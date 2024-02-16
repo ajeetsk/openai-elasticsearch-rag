@@ -81,6 +81,12 @@ curl --location --request PUT 'http://localhost:9200/first-index' \
 }'
 ```
 
+If you want to delete the index for clean start, use the following command.
+
+```bash
+curl --location --request DELETE 'http://localhost:9200/first-index'
+```
+
 ### 2. Index Data
 
 To index data, use the following `curl` command. This command sends a POST request to the specified endpoint with a JSON
@@ -92,18 +98,31 @@ Make sure you have the server running on `localhost` on port `8081`.
 curl --location --request POST 'localhost:8081/api/index' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "text": "Ajeet is an engineer turned product entrepreneur with experience in AI, SaaS, HealthTech and EdTech. He is a technology enthusiast and loves to work on new technologies. He was a founding member of leading health-tech startups 1mg and HealthKart in India. He was the founder of Joe Hukum, a chatbot platform which was acquired by Freshworks. He loves solving zero to one problems and working with young and passionate engineers. Currently, he is exploring GenAI.",
+  "text": "Ajeet is an engineer turned product entrepreneur with experience in AI, SaaS, HealthTech and EdTech. He is a technology enthusiast and loves to work on new technologies. He was a founding member of leading health-tech startups HealthKart and TATA 1mg in India. He was the founder of Joe Hukum, a chatbot platform which was acquired by Freshworks. After Freshworks, he founded Seekho.ai to solve for the skill gap in Indian higher education. Currently, he is on a break and is exploring GenAI to solve for the next meaningful problem. He is passionate about solving zero to one problems and building products that can impact millions of lives.",
   "index_name": "first-index"
 }'
 ```
 
 ### 3. Query Data
 
+Example 1:
+
 ```bash
 curl --location --request POST 'localhost:8081/api/query' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "question": "Who is Ajeet?",
+  "index_name": "first-index"
+}'
+```
+
+Example 2:
+
+```bash
+curl --location --request POST 'localhost:8081/api/query' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "question": "Joe Hukum was acquired by which company?",
   "index_name": "first-index"
 }'
 ```
