@@ -13,7 +13,7 @@ ElasticSearch. Here we are
 1. Python 3.9 or above
 2. pip
 3. virtualenv
-4. elasticsearch (https://www.elastic.co/downloads/elasticsearch)
+4. elasticsearch - 7.14.0 (https://www.elastic.co/downloads/elasticsearch)
 5. OpenAI API Key (https://platform.openai.com/)
 
 ### Installation Steps:
