@@ -1,8 +1,7 @@
 # RAG Application using OpenAI and ElasticSearch
 
-*RAG(Retrieval-Augmented Generation)* Application to offer Q&A like experience on a long format text using OpenAI and
-ElasticSearch.
-Here we are
+RAG *(Retrieval-Augmented Generation)* Application to offer Q&A on a long format text using OpenAI and
+ElasticSearch. Here we are
 
 - using ES as VectorDB to store the data and use it for search.
 - using OpenAI to create embeddings and generate answers to the questions.
@@ -60,9 +59,9 @@ App will start on `localhost` on port `8081`. Sanity check by running in termina
 curl -X GET "localhost:8081"
 ```
 
-## To Index Text Data
+## To Index and Query Data
 
-### Create ES Index
+### 1. Create ES Index
 
 ```bash
 curl --location --request PUT 'http://localhost:9200/first-index' \
@@ -82,7 +81,7 @@ curl --location --request PUT 'http://localhost:9200/first-index' \
 }'
 ```
 
-## Index Data
+### 2. Index Data
 
 To index data, use the following `curl` command. This command sends a POST request to the specified endpoint with a JSON
 payload containing the text to be indexed and the name of the index.
@@ -98,7 +97,7 @@ curl --location --request POST 'localhost:8081/api/index' \
 }'
 ```
 
-### To Query Data
+### 3. Query Data
 
 ```bash
 curl --location --request POST 'localhost:8081/api/query' \
@@ -109,8 +108,4 @@ curl --location --request POST 'localhost:8081/api/query' \
 }'
 ```
 
-- To deactivate virtual environment
-
-```bash
-deactivate
-```
+#### Built by Ajeet with ☕️ and ❤️
