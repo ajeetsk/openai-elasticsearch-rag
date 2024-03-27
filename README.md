@@ -3,8 +3,8 @@
 RAG *(Retrieval-Augmented Generation)* Application to offer Q&A on a long format text using OpenAI and
 ElasticSearch. Here we are
 
-- using ES as VectorDB to store the data and use it for search.
-- using OpenAI to create embeddings and generate answers to the questions.
+- using ElasticSearch as VectorDB to store indexed data and use it for Retrieval.
+- using OpenAI to create embeddings and generate answers to the questions after retrieving relevant chuncks from ES.
 
 ## Getting Started
 
