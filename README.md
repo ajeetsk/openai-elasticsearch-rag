@@ -1,4 +1,4 @@
-# RAG Application using OpenAI and ElasticSearch
+# Retrieval Augmented Generation (RAG) Application using OpenAI and ElasticSearch as Vector DB
 
 RAG *(Retrieval-Augmented Generation)* Application to offer Q&A on a long format text using OpenAI and
 ElasticSearch. Here we are
